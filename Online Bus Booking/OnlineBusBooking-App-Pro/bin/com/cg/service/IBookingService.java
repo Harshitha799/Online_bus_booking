@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.entities.Booking;
-//import com.cg.entities.FeedBack;
-//import com.cg.entities.User;
+import com.cg.entities.FeedBack;
+import com.cg.entities.User;
 import com.cg.exceptions.InvalidBookingIdException;
 import com.cg.exceptions.InvalidBusRouteNameException;
 import com.cg.exceptions.InvalidDateException;
@@ -15,16 +15,16 @@ import com.cg.exceptions.InvalidDateException;
 @Service
 public interface IBookingService 
 {
-	public long addBooking(Booking booking); // return booking id
+	public long addBooking(Booking booking); 
 	public boolean updateBookingDate(long bookingId)throws InvalidDateException;
 	public boolean deleteBooking(long bookingId); 
 	public Booking getBookingDetailsById(long bookingId)throws InvalidBookingIdException;
-	//public void addFeedBack(User user,long bookingId)throws InvalidBookingIdException;
+	public void addFeedBack(User user,long bookingId)throws InvalidBookingIdException;
 	public List<Booking> getAllBookingsById(String username);
 	public List<Booking> getAllBookingByDate(LocalDate date);
 	public List<Booking> getAllBookingByBusRoute(String routeName)throws InvalidBusRouteNameException;
 	public void addFeedback(String username,long bookingId,String msg);
-	//public List<FeedBack> getFeedBackByBusRoute(String routeName)throws InvalidBusRouteNameException;;
+	public List<FeedBack> getFeedBackByBusRoute(String routeName)throws InvalidBusRouteNameException;;
 	
 
 }
