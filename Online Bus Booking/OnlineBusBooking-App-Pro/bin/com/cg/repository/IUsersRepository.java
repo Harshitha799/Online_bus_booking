@@ -6,7 +6,7 @@ import com.cg.entities.Booking;
 import com.cg.entities.User;
 import com.cg.exceptions.InvalidBookingIdException;
 
-public interface IUsersRepository {
+public interface IUsersRepository extends JpaRepository<User, Integer> {
 
 	public void addUser(User user);
 	public void deleteUser(String username);
