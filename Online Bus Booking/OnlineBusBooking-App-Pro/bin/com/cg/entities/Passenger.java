@@ -1,4 +1,4 @@
-package com.cg.entityyy;
+package com.cg.entities;
 
 import java.util.Set;
 
@@ -11,16 +11,16 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.cg.entityyy.full_booking;
+import com.cg.entities.Booking;
 
 @Entity
-@Table(name = "full_passenger")
-public class full_passenger
+@Table(name = "passenger")
+public class Passenger
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@SequenceGenerator(name="full_passengerCounter",sequenceName="full_passengerSequence",initialValue=1)
-	private int full_passengerId;
+	@SequenceGenerator(name="passengerCounter",sequenceName="passengerSequence",initialValue=1)
+	private int passengerId;
 	private String username;
 	private String firstName;
 	private String lastName;
@@ -29,15 +29,15 @@ public class full_passenger
 	private long identityDocNumber;
 	private String identityDocumentName;
 
-	@ManyToMany(mappedBy="full_passengersInfo", cascade = CascadeType.PERSIST)
-	private Set<full_booking> full_bookingobj;
+	@ManyToMany(mappedBy="passengersInfo", cascade = CascadeType.PERSIST)
+	private Set<Booking> bookingobj;
 
-	public int getFull_passengerId() {
-		return full_passengerId;
+	public int getpassengerId() {
+		return passengerId;
 	}
 
-	public void setFull_passengerId(int full_passengerId) {
-		this.full_passengerId = full_passengerId;
+	public void setpassengerId(int passengerId) {
+		this.passengerId = passengerId;
 	}
 
 	public String getUsername() {
@@ -96,18 +96,18 @@ public class full_passenger
 		this.identityDocumentName = identityDocumentName;
 	}
 
-	public Set<full_booking> getFull_bookingobj() {
-		return full_bookingobj;
+	public Set<Booking> getbookingobj() {
+		return bookingobj;
 	}
 
-	public void setFull_bookingobj(Set<full_booking> full_bookingobj) {
-		this.full_bookingobj = full_bookingobj;
+	public void setbookingobj(Set<Booking> bookingobj) {
+		this.bookingobj = bookingobj;
 	}
 
-	public full_passenger(int full_passengerId, String username, String firstName, String lastName, long phoneNumber,
-			String email, long identityDocNumber, String identityDocumentName, Set<full_booking> full_bookingobj) {
+	public Passenger(int passengerId, String username, String firstName, String lastName, long phoneNumber,
+			String email, long identityDocNumber, String identityDocumentName, Set<Booking> bookingobj) {
 		super();
-		this.full_passengerId = full_passengerId;
+		this.passengerId = passengerId;
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -115,20 +115,20 @@ public class full_passenger
 		this.email = email;
 		this.identityDocNumber = identityDocNumber;
 		this.identityDocumentName = identityDocumentName;
-		this.full_bookingobj = full_bookingobj;
+		this.bookingobj = bookingobj;
 	}
 
-	public full_passenger() {
+	public Passenger() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "full_passenger [full_passengerId=" + full_passengerId + ", username=" + username + ", firstName="
+		return "Passenger [passengerId=" + passengerId + ", username=" + username + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber + ", email=" + email
 				+ ", identityDocNumber=" + identityDocNumber + ", identityDocumentName=" + identityDocumentName
-				+ ", full_bookingobj=" + full_bookingobj + "]";
+				+ ", booking=" + bookingobj + "]";
 	}
 	
 	
