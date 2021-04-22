@@ -21,18 +21,18 @@ import javax.persistence.Table;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
-@Table(name = "full_booking")
-public class full_booking
+@Table(name = "booking")
+public class Booking
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@SequenceGenerator(name="full_bookingCounter",sequenceName="full_bookingSequence",initialValue=1)
-	private long full_bookingId; 
+	@SequenceGenerator(name="bookingCounter",sequenceName="bookingSequence",initialValue=1)
+	private long bookingId; 
 	private String username; 
 	
 	@ManyToMany(cascade = CascadeType.PERSIST, fetch=FetchType.EAGER)
-	@JoinTable(name= "full_booking_full_passenger", joinColumns = {@JoinColumn(name="full_bookingId")}, inverseJoinColumns = {@JoinColumn(name= "full_passengerId")} )
-	private List<full_passenger> full_passengersInfo;
+	@JoinTable(name= "booking_passenger", joinColumns = {@JoinColumn(name="bookingId")}, inverseJoinColumns = {@JoinColumn(name= "passengerId")} )
+	private List<Passenger> passengersInfo;
 	
 	private String busNumber;
 	private String source;
@@ -44,15 +44,15 @@ public class full_booking
 	private LocalTime journeyEndTime;
 
 	@ManyToOne
-    @JoinColumn(name = "full_userId")
-	private full_user full_userInfo;
+        @JoinColumn(name = "userId")
+	private User userInfo;
 
-	public long getFull_bookingId() {
-		return full_bookingId;
+	public long getbookingId() {
+		return bookingId;
 	}
 
-	public void setFull_bookingId(long full_bookingId) {
-		this.full_bookingId = full_bookingId;
+	public void setbookingId(long bookingId) {
+		this.bookingId = bookingId;
 	}
 
 	public String getUsername() {
@@ -63,12 +63,12 @@ public class full_booking
 		this.username = username;
 	}
 
-	public List<full_passenger> getFull_passengersInfo() {
-		return full_passengersInfo;
+	public List<Passenger> getpassengersInfo() {
+		return passengersInfo;
 	}
 
-	public void setFull_passengersInfo(List<full_passenger> full_passengersInfo) {
-		this.full_passengersInfo = full_passengersInfo;
+	public void setpassengersInfo(List<Passenger> passengersInfo) {
+		this.passengersInfo = passengersInfo;
 	}
 
 	public String getBusNumber() {
@@ -135,21 +135,21 @@ public class full_booking
 		this.journeyEndTime = journeyEndTime;
 	}
 
-	public full_user getFull_userInfo() {
-		return full_userInfo;
+	public User getuserInfo() {
+		return userInfo;
 	}
 
-	public void setFull_userInfo(full_user full_userInfo) {
-		this.full_userInfo = full_userInfo;
+	public void setuserInfo(User userInfo) {
+		this.userInfo = userInfo;
 	}
 
-	public full_booking(long full_bookingId, String username, List<full_passenger> full_passengersInfo,
+	public Booking(long bookingId, String username, List<Passenger> passengersInfo,
 			String busNumber, String source, String destination, int numberOfSeats, int amountPaid, LocalDate datenm,
-			LocalTime journeyStartTime, LocalTime journeyEndTime, full_user full_userInfo) {
+			LocalTime journeyStartTime, LocalTime journeyEndTime, User userInfo) {
 		super();
-		this.full_bookingId = full_bookingId;
+		this.bookingId = bookingId;
 		this.username = username;
-		this.full_passengersInfo = full_passengersInfo;
+		this.passengersInfo = passengersInfo;
 		this.busNumber = busNumber;
 		this.source = source;
 		this.destination = destination;
@@ -158,21 +158,21 @@ public class full_booking
 		this.datenm = datenm;
 		this.journeyStartTime = journeyStartTime;
 		this.journeyEndTime = journeyEndTime;
-		this.full_userInfo = full_userInfo;
+		this.userInfo = userInfo;
 	}
 
-	public full_booking() {
+	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "full_booking [full_bookingId=" + full_bookingId + ", username=" + username + ", full_passengersInfo="
-				+ full_passengersInfo + ", busNumber=" + busNumber + ", source=" + source + ", destination="
+		return "Booking [bookingId=" + bookingId + ", username=" + username + ", passengersInfo="
+				+ passengersInfo + ", busNumber=" + busNumber + ", source=" + source + ", destination="
 				+ destination + ", numberOfSeats=" + numberOfSeats + ", amountPaid=" + amountPaid + ", datenm=" + datenm
-				+ ", journeyStartTime=" + journeyStartTime + ", journeyEndTime=" + journeyEndTime + ", full_userInfo="
-				+ full_userInfo + "]";
+				+ ", journeyStartTime=" + journeyStartTime + ", journeyEndTime=" + journeyEndTime + ", userInfo="
+				+ userInfo + "]";
 	}
 
 	
