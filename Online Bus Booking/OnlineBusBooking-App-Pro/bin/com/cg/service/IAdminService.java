@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cg.entities.AdminUser;
 import com.cg.entities.Bus;
 import com.cg.entities.BusOperator;
@@ -11,6 +13,7 @@ import com.cg.entities.BusOperatorRequest;
 import com.cg.entities.BusRoute;
 import com.cg.entities.User;
 
+@Service
 public interface IAdminService {
 
 	public List<BusOperator> getAllBusOperators();
