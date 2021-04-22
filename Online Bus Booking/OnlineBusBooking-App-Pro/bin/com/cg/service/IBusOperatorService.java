@@ -3,11 +3,14 @@ package com.cg.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cg.entities.Booking;
 import com.cg.entities.Bus;
 import com.cg.entities.BusOperator;
 import com.cg.exceptions.InvalidUsernameException;
 
+@Service
 public interface IBusOperatorService {
 
 	public void addBus(Bus bus);
