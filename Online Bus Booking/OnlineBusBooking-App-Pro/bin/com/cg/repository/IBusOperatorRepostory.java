@@ -8,7 +8,7 @@ import com.cg.entities.Bus;
 import com.cg.entities.BusOperator;
 import com.cg.exceptions.InvalidUsernameException;
 
-public interface IBusOperatorRepostory {
+public interface IBusOperatorRepostory extends JpaRepository<BusOperator, Integer> {
 
 	public void addBus(Bus bus);
 	
