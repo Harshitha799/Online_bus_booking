@@ -1,4 +1,4 @@
-package com.cg.entityyy;
+package com.cg.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
