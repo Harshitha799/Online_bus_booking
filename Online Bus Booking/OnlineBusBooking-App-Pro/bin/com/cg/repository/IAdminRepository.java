@@ -1,19 +1,16 @@
 package com.cg.repository;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
-import com.cg.entities.AdminUser;
-import com.cg.entities.Bus;
-import com.cg.entities.BusOperator;
-import com.cg.entities.BusOperatorRequest;
-import com.cg.entities.BusRoute;
-import com.cg.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface IAdminRepository {
+import com.cg.entities.Admin;
 
-	public List<BusOperator> getAllBusOperators();
+@Repository
+public interface IAdminRepository extends JpaRepository<Admin, Integer>
+{	public List<BusOperator> getAllBusOperators();
 	public List<BusOperator> getAllBusOperatorsByRoute(String routeName);
 	public List<BusOperatorRequest> getAllBusOperatorsRequest();
 	
