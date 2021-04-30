@@ -296,7 +296,7 @@ public class BusOperatorController {
 
 		}
 		try {
-			bookingserviseimpl.addBookingdto(bookingdto);
+			bookingserviseimpl.addBooking(bookingdto);
 		}
 
 		catch (InvalidBusOperatorException exception) {

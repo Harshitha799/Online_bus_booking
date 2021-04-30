@@ -6,7 +6,7 @@ public class FeedbackDto {
 	private String comments;
 	private String username;
 	private String routeName;
-	private Integer userId;
+	private Long userId;
 	private Integer busoperator;
 	public int getRatings() {
 		return ratings;
@@ -32,10 +32,10 @@ public class FeedbackDto {
 	public void setRouteName(String routeName) {
 		this.routeName = routeName;
 	}
-	public Integer getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public Integer getBusoperator() {
@@ -44,7 +44,7 @@ public class FeedbackDto {
 	public void setBusoperator(Integer busoperator) {
 		this.busoperator = busoperator;
 	}
-	public FeedbackDto(int ratings, String comments, String username, String routeName, Integer userId,
+	public FeedbackDto(int ratings, String comments, String username, String routeName, Long userId,
 			Integer busoperator) {
 		super();
 		this.ratings = ratings;

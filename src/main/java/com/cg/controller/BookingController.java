@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.dto.BookingDto;
+import com.cg.dto.PassengerDto;
 import com.cg.entity.Booking10;
 import com.cg.entity.Feedback10;
 import com.cg.entity.Passenger10;
@@ -66,7 +68,7 @@ public class BookingController {
 	 **********************************************************/
 	
 	@PostMapping(value = "/addBooking")
-	public ResponseEntity<Object> addBooking(@Valid @RequestBody Booking10 booking, BindingResult bindingResult) {
+	public ResponseEntity<Object> addBooking(@Valid @RequestBody BookingDto bookingdto, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
 			List<FieldError> errors = bindingResult.getFieldErrors();
@@ -77,10 +79,10 @@ public class BookingController {
 			throw new BookingValidationException(errorList);
 		}
 		try {
-			long bookadd = bookingService.addBooking(booking);
+			long bookadd = bookingService.addBooking(bookingdto);
 			return new ResponseEntity<Object>("Booked successfully and booking Id is " + bookadd, HttpStatus.OK);
 		} catch (InvalidBookingException e) {
-			throw new InvalidBookingException("The above institution code / user id already exists");
+			throw new InvalidBookingException("The Booking of this user details already exists");
 		}
 	}
 
@@ -202,6 +204,24 @@ public class BookingController {
 
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 }

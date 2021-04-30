@@ -8,13 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.dto.BookingDto;
+import com.cg.dto.PassengerDto;
 import com.cg.entity.Booking10;
 import com.cg.entity.Feedback10;
+import com.cg.entity.Passenger10;
+import com.cg.entity.User10;
 import com.cg.exception.IdNotFoundException;
 import com.cg.exception.InvalidBookingUsernameException;
 import com.cg.exception.InvalidBusRouteNameException;
 import com.cg.repository.IBookingRepository;
 import com.cg.repository.IFeedBackRepository;
+import com.cg.repository.IPassengerRepository;
 import com.cg.repository.IUserRepository;
 
 /******************************************************************
@@ -51,8 +55,16 @@ public class BookingServiceImpl implements IBookingService
 	 ***********************************************************************************/
 	
 	@Override
-	public long addBooking(Booking10 booking) 
+	public long addBooking(BookingDto bookingdto)
 	{
+		Booking10 booking = new Booking10();
+		booking.setAmountPaid(bookingdto.getAmountPaid());
+		booking.setBusNumber(bookingdto.getBusNumber());
+		booking.setNumberOfSeats(bookingdto.getNumberOfSeats());
+		booking.setDatenm(bookingdto.getDatenm());
+		booking.setDestination(bookingdto.getDestination());
+		booking.setSource(bookingdto.getSource());
+		booking.setUsername(bookingdto.getUsername());
 		bookingRepository.save(booking);
 		return booking.getBookingId();
 	}
@@ -90,23 +102,23 @@ public class BookingServiceImpl implements IBookingService
 	 *************************************************************************************/
 
 	@Override
-	public boolean updateBookingById(long bookingId, Booking10 booking) 
+	public void updateBookingById(long bookingId, Booking10 booking) 
 	{
-		Booking10 updatebooking = bookingRepository.findById(bookingId).get();
 		
-		
-		if(updatebooking == null) 
+		if(bookingRepository.existsById(bookingId)) 
 		{
-			throw new IdNotFoundException("Booking Id was not found");
-		}
-		else
-		{
+			Booking10 updatebooking = bookingRepository.findById(bookingId).get();
 			updatebooking.setDestination(booking.getDestination());
 			updatebooking.setBusNumber(booking.getBusNumber());
 
 			bookingRepository.save(updatebooking);
+			
 		}
-		return true;
+		else
+		{
+			throw new IdNotFoundException();
+		}
+		
 	}
 	
 	
@@ -172,16 +184,7 @@ public class BookingServiceImpl implements IBookingService
 
 
 	
-	@Transactional
-	@Override
-	public Booking10 addBookingdto(BookingDto bookingdto)
-	{
-		Booking10 booking = new Booking10();
-		booking.setDatenm(bookingdto.getDate());
-		booking.setDestination(bookingdto.getDestination());
-		booking.setSource(bookingdto.getSource());
-		return bookingRepository.save(booking);
-	}
 	
+
 	
 }

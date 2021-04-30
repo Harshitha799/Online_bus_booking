@@ -11,8 +11,8 @@ import com.cg.entity.Feedback10;
 @Service
 public interface IFeedBackService {
 	
-	//public Feedback10 addFeedback(FeedbackDto feedback);
-	public Feedback10 addFeedback(Feedback10 feedback);
+	public Feedback10 addFeedback(FeedbackDto feedback);
+	//public Feedback10 addFeedback(Feedback10 feedback);
 	
 	public List<Feedback10> viewAllFeedBacks(String routeName);
 	

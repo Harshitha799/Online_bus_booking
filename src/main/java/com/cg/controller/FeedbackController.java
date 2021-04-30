@@ -50,7 +50,7 @@ public class FeedbackController {
 	 */
 	@ApiOperation(value="add feedback")
 	@PostMapping(value="/addfeedback")
-	public ResponseEntity<String> addFeedback(@Valid @RequestBody Feedback10 feedback){
+	public ResponseEntity<String> addFeedback(@Valid @RequestBody FeedbackDto feedback){
 		feedbackservice.addFeedback(feedback);
 		return new ResponseEntity<>("Added feedback successfully",HttpStatus.OK);
 		

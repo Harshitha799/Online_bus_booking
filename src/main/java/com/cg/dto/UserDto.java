@@ -1,6 +1,5 @@
 package com.cg.dto;
 import javax.validation.constraints.NotEmpty;
-//import javax.validation.constraints.NotNull;
 
 public class UserDto 
 {
@@ -10,7 +9,6 @@ public class UserDto
 	private String password;
 	public UserDto() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public UserDto(String username, String password) {
 		super();

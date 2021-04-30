@@ -26,26 +26,26 @@ public class FeedbackServiceImpl implements IFeedBackService{
 	@Autowired
 	IBusOperator busoperatorRepository;
 
-//	@Override
-//	public Feedback10 addFeedback(FeedbackDto feedbackdto) {
-//		Feedback10 feedback=new Feedback10();
-//		BusOperator10 busoperator=busoperatorRepository.findById(feedbackdto.getBusoperator()).get();
-//		User10 user = userRepository.findById(feedbackdto.getUserId()).get();
-//		feedback.setBusoperator(busoperator);
-//		feedback.setUser(user);
-//		feedback.setComments(feedbackdto.getComments());
-//		feedback.setRatings(feedbackdto.getRatings());
-//		feedback.setRouteName(feedbackdto.getRouteName());
-//		feedback.setUsername(feedbackdto.getUsername());
-//		return feedbackRepository.save(feedback);
-//	}
-
 	@Override
-	public Feedback10 addFeedback(Feedback10 feedback) {
-		
+	public Feedback10 addFeedback(FeedbackDto feedbackdto) {
+		Feedback10 feedback=new Feedback10();
+		BusOperator10 busoperator=busoperatorRepository.findById(feedbackdto.getBusoperator()).get();
+		User10 user = userRepository.findById(feedbackdto.getUserId()).get();
+		feedback.setBusoperator(busoperator);
+		feedback.setUser(user);
+		feedback.setComments(feedbackdto.getComments());
+		feedback.setRatings(feedbackdto.getRatings());
+		feedback.setRouteName(feedbackdto.getRouteName());
+		feedback.setUsername(feedbackdto.getUsername());
 		return feedbackRepository.save(feedback);
-
 	}
+
+//	@Override
+//	public Feedback10 addFeedback(Feedback10 feedback) {
+//		
+//		return feedbackRepository.save(feedback);
+//
+//	}
 
 	@Override
 	public List<Feedback10> viewAllFeedBacks(String routeName) {
