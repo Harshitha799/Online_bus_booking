@@ -3,6 +3,15 @@ package com.cg.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+/*********************************************************************
+ * 
+ * @author Harshitha V 
+ * Version: 1.0 
+ * Date: 20-04-2021 
+ * Description: This is the dto class of the Passenger module
+ *
+ *********************************************************************/
+
 public class PassengerDto 
 {
 	@NotEmpty(message="username should not be empty")

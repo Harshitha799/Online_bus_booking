@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /*************************************************************************
  * 
- * @author Harshitha V
  * Description: This is global exception class to handle all exceptions
- * Created date: 23-04-2021
+ * Created date: 20-04-2021
  * 
  *************************************************************************/
 
 
 @RestControllerAdvice
-public class OnlineBusBookingController  
+public class OnlineBusBookingGlobalController  
 {
 	
 	/****************************************************************************************
@@ -71,41 +70,20 @@ public class OnlineBusBookingController
 	 * 
 	 ***************************************************************************************/
 	
-	@ExceptionHandler(value = InvalidBusRouteNameException.class)
-	public ResponseEntity<Object> handleException(InvalidBusRouteNameException exception) {
-		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.NOT_FOUND);
-	}
-	
-	/****************************************************************************************
-	 * 
-	 * @author Harshitha V
-	 * Created date: 22-04-2021
-	 * @param exception
-	 * @return this method returns a new ResponseEntity with an appropriate response code
-	 * 
-	 ***************************************************************************************/
-	
 	@ExceptionHandler(value = InvalidDateException.class)
 	public ResponseEntity<Object> handleException(InvalidDateException exception) {
 		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.NOT_FOUND);
 	}
 	
+
 	/****************************************************************************************
 	 * 
-	 * @author Harshitha V
-	 * Created date: 22-04-2021
+	 * @author Durga Anand
+	 * Created date: 20-04-2021
 	 * @param exception
 	 * @return this method returns a new ResponseEntity with an appropriate response code
 	 * 
 	 ***************************************************************************************/
-	
-	@ExceptionHandler(value = InvalidBookingUsernameException.class)
-	public ResponseEntity<Object> handleException(InvalidBookingUsernameException exception) {
-		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.NOT_FOUND);
-	}
-	
-	
-	
 	
 	@ExceptionHandler(value = UsernameAlreadyExistsException.class)
 	public ResponseEntity<Object> handleException(UsernameAlreadyExistsException exception) {
@@ -114,6 +92,15 @@ public class OnlineBusBookingController
 
 	}
 
+	/****************************************************************************************
+	 * 
+	 * @author Durga Anand
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
 	@ExceptionHandler(value = InvalidUsernameException.class)
 	public ResponseEntity<Object> handleException(InvalidUsernameException exception) {
 	
@@ -121,13 +108,46 @@ public class OnlineBusBookingController
 
 	}
 
-	@ExceptionHandler(value = UsernameNotFoundException.class)
-	public ResponseEntity<Object> handleException(UsernameNotFoundException exception) {
-		
-		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.NOT_FOUND);
-		
-	}
 
+	/****************************************************************************************
+	 * 
+	 * @author Durga Anand
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
+	@ExceptionHandler(value = UserValidationException.class)
+	public ResponseEntity<Object> handleException(UserValidationException exception) {
+		return new ResponseEntity<>(exception.getMessages(), HttpStatus.BAD_REQUEST);
+	}
+	
+
+	/****************************************************************************************
+	 * 
+	 * @author Durga Anand
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
+	@ExceptionHandler(value = InvalidUserException.class)
+	public ResponseEntity<Object> handleException(InvalidUserException exception) {
+		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
+	
+	/****************************************************************************************
+	 * 
+	 * @author Hima Bindhu
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
 	@ExceptionHandler(value = InvalidBusOperatorException.class)
 	public ResponseEntity<Object> handleException(InvalidBusOperatorException exception) {
 		
@@ -135,13 +155,16 @@ public class OnlineBusBookingController
 	
 	}
 
-	@ExceptionHandler(value = InvalidRouteNameException.class)
-	public ResponseEntity<Object> handleException(InvalidRouteNameException exception) {
 	
-		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+	/****************************************************************************************
+	 * 
+	 * @author Hima Bindhu
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
 	
-	}
-
 	@ExceptionHandler(value = BusOperatorValidationException.class)
 	public ResponseEntity<Object> handleException(BusOperatorValidationException exception) {
 	
@@ -149,6 +172,16 @@ public class OnlineBusBookingController
 	
 	}
 
+	
+	/****************************************************************************************
+	 * 
+	 * @author Hima Bindhu
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
 	@ExceptionHandler(value = BusNotFoundException.class)
 	public ResponseEntity<Object> handleException(BusNotFoundException exception) {
 	
@@ -156,15 +189,22 @@ public class OnlineBusBookingController
 	
 	}
 	
-	//Anand
 	
-	@ExceptionHandler(value = UserValidationException.class)
-	public ResponseEntity<Object> handleException(UserValidationException exception) {
-		return new ResponseEntity<>(exception.getMessages(), HttpStatus.BAD_REQUEST);
-	}
-	@ExceptionHandler(value = InvalidUserException.class)
-	public ResponseEntity<Object> handleException(InvalidUserException exception) {
+	/****************************************************************************************
+	 * 
+	 * @author Prithviraj V
+	 * Created date: 20-04-2021
+	 * @param exception
+	 * @return this method returns a new ResponseEntity with an appropriate response code
+	 * 
+	 ***************************************************************************************/
+	
+	@ExceptionHandler(value = InvalidRouteNameException.class)
+	public ResponseEntity<Object> handleException(InvalidRouteNameException exception) {
+	
 		return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
-	}
 	
+	}
+
+
 }

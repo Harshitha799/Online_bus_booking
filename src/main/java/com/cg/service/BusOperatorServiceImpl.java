@@ -19,17 +19,17 @@ import com.cg.repository.IBus;
 import com.cg.repository.IBusOperator;
 import com.cg.repository.IBusRoute;
 
+
 /******************************************************************
  * 
  * @author Hima Bindhu
  * Version: 1.0
  * Description: This is the service implementation class of the function declared in the 
- * 				service interface IBookingService that autowires a bean of IBookingService
- * 				to perform JPA Functions
- * Created date: 21-04-2021
+ * 				service interface IBusOperatorService that autowires a bean of IBusOperator,
+ * 				IBus and IBusRoute to perform JPA Functions
+ * Created date: 20-04-2021
  * 
  ******************************************************************/
-
 
 @Service
 public class BusOperatorServiceImpl implements IBusOperatorService {
@@ -42,10 +42,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 	
 	@Autowired
 	IBusRoute busrouteRepository;
+	
 	/*******************************************************
 	 * Method : addBusOperator
 	 * Description: Method is created to add new BusOperator 
-	 * Created Date: 19 April 2021
+	 * Created Date: 20 April 2021
 	 */
 	
 	@Transactional
@@ -59,10 +60,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 
+	
 	/***********************************************************
 	 * Method : getRevenueByBusRoute
 	 * Description: Method is created to get revenue byBusRoute
-	 * Created Date: 19 April 2021
+	 * Created Date: 20 April 2021
 	 */
 	
 	@Transactional
@@ -73,10 +75,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 	
+	
 	/***************************************************************
 	 * Method : getMonthlyRevenueByBusRoute
 	 * Description: Method is created to getmonthly revenue by BusRoute
-	 * Created Date: 19 April 2021 
+	 * Created Date: 20 April 2021 
 	 */
 	
 	@Transactional
@@ -87,10 +90,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 	
+	
 	/*********************************************************************
 	 * Method : getRevenueByBusRouteAndDate
 	 * Description: Method is created to get daily revenue by BusRoute
-	 * Created Date: 19 April 2021 
+	 * Created Date: 20 April 2021 
 	 */
 
 	@Transactional
@@ -101,10 +105,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 	
+	
    /*******************************************************************
     * Method :  getYearlyRevenueByBusRoute
     * Description: Method is created to get yearly revenue by BusRoute
-    *  Created Date: 19 April 2021
+    *  Created Date: 20 April 2021
     */
 	
 	@Transactional
@@ -115,10 +120,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 	
+	
 	/*************************************************
 	 * Method : addBus
 	 * Description: Method is created to add new Bus
-	 * Created Date: 19 April 2021
+	 * Created Date: 20 April 2021
 	 */
 
 	@Transactional
@@ -135,10 +141,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 	
+	
 	/*************************************************************
 	 * Method : addBusRoute
 	 * Description: Method is created to add new BusRoute
-	 * Created Date : 20 April 2021
+	 * Created Date : 21 April 2021
 	 */
 
 	@Transactional
@@ -153,10 +160,11 @@ public class BusOperatorServiceImpl implements IBusOperatorService {
 		
 	}
 
+	
 	/************************************************************
 	 * Method : updatePassword
 	 * Description: Method is created to update password
-	 * Created Date : 20 April 2021
+	 * Created Date : 21 April 2021
 	 */
 	
 	@Transactional

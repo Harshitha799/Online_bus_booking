@@ -1,6 +1,15 @@
 package com.cg.dto;
 import javax.validation.constraints.NotEmpty;
 
+/*********************************************************************
+ * 
+ * @author Durga Anand
+ * Version: 1.0 
+ * Date: 20-04-2021 
+ * Description: This is the dto class of the User module
+ *
+ *********************************************************************/
+
 public class UserDto 
 {
 	@NotEmpty(message="Username cannot be blank")

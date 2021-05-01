@@ -17,8 +17,8 @@ import com.cg.entity.BusRoute10;
  * 
  * @author Hima Bindhu
  * Version: 1.0
- * Description: This is the service layer's IBookingService interface
- * Created date: 21-04-2021
+ * Description: This is the service layer's IBusOperatorService interface
+ * Created date: 20-04-2021
  * 
  ****************************************************************************/
 

@@ -12,7 +12,7 @@ import com.cg.entity.Feedback10;
 
 /******************************************************************
  * 
- * @author Harshitha V
+ * @author Prithviraj V
  * Version: 1.0
  * Description: This is DAO layer's IFeedbackRepository interface  
  * Created date: 23-04-2021

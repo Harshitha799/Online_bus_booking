@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiOperation;
 
 /************************************************************
  * 
- * @author Prithvi
+ * @author Prithviraj V
  * Description: This class is used for feedback controller where we can add and view feedbacks;
  * Version: v1.0
  * Created date:20 April 2021
@@ -56,6 +56,15 @@ public class FeedbackController {
 		
 	}
 	
+	
+	/**
+	 * Method viewAllFeedBacks
+	 * Description : This method is used to view feedback by routename
+	 * @param routeName
+	 * @return List<Feedback10><>
+	 * @GetMapping 
+	 * Created date:20 April 2021
+	 */
 	@ApiOperation(value="view all feedback by routename")
 	@GetMapping(value="/viewallfeedbackbyroutename/{routeName}")
 	public List<Feedback10> viewAllFeedBacks(@Valid @PathVariable String routeName){
@@ -68,6 +77,15 @@ public class FeedbackController {
 	}
 	}
 	
+	
+	/**
+	 * Method viewAllFeedBacks
+	 * Description : This method is used to view feedback by busoperator
+	 * @param busoperator
+	 * @return List<Feedback10><>
+	 * @GetMapping 
+	 * Created date:20 April 2021
+	 */
 	@ApiOperation(value="view all feedback by busoperator")
 	@GetMapping(value="/viewallfeedbackbybusoperator/{busoperator}")
 	public List<Feedback10> viewAllFeedBacks(@Valid @PathVariable BusOperator10 busoperator){

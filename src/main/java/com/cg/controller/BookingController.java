@@ -1,6 +1,5 @@
 package com.cg.controller;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,18 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.dto.BookingDto;
-import com.cg.dto.PassengerDto;
 import com.cg.entity.Booking10;
 import com.cg.entity.Feedback10;
-import com.cg.entity.Passenger10;
-import com.cg.entity.User10;
 import com.cg.exception.BookingValidationException;
 import com.cg.exception.IdNotFoundException;
 import com.cg.exception.InvalidBookingException;
-import com.cg.exception.InvalidBookingUsernameException;
-import com.cg.exception.InvalidBusRouteNameException;
-import com.cg.exception.InvalidDateException;
-
+import com.cg.exception.InvalidRouteNameException;
+import com.cg.exception.InvalidUsernameException;
 import com.cg.service.BookingServiceImpl;
 
 import io.swagger.annotations.Api;
@@ -176,8 +170,8 @@ public class BookingController {
 		try {
 			return bookingService.getAllBookingsByUsername(username);
 		} 
-		catch (InvalidBookingUsernameException e) {
-			throw new InvalidBookingUsernameException("No Booking details are found");
+		catch (InvalidUsernameException e) {
+			throw new InvalidUsernameException("No Booking details are found");
 		}
 
 	}
@@ -198,8 +192,8 @@ public class BookingController {
 		try {
 			return bookingService.getFeedBackByBusRoute(routeName);
 		} 
-		catch (InvalidBusRouteNameException e) {
-			throw new InvalidBusRouteNameException("Incorrect bus route name");
+		catch (InvalidRouteNameException e) {
+			throw new InvalidRouteNameException("Incorrect bus route name");
 		}
 
 	}

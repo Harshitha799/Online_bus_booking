@@ -9,6 +9,15 @@ import org.springframework.data.repository.query.Param;
 
 import com.cg.entity.BusOperator10;
 
+/******************************************************************
+ * 
+ * @author Hima Bindhu
+ * Version: 1.0
+ * Description: This is DAO layer's IBusOperatorRepository interface  
+ * Created date: 21-04-2021
+ * 
+ ******************************************************************/
+
 public interface IBusOperator extends JpaRepository<BusOperator10, Integer> {
 
 	public boolean existsByBusOperatorUsername(String busOperatorUsername);

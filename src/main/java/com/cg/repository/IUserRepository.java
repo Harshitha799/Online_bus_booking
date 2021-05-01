@@ -10,7 +10,7 @@ import com.cg.entity.User10;
 
 /******************************************************************
  * 
- * @author Harshitha V
+ * @author Durga Anand
  * Version: 1.0
  * Description: This is DAO layer's IUserRepository interface  
  * Created date: 21-04-2021
@@ -27,7 +27,6 @@ public interface IUserRepository extends JpaRepository<User10, Long>
 	
 	void save(String newPassword);
 
-	//public User10 findById(Integer userId);
 
 	
 	

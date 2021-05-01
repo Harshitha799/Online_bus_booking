@@ -14,24 +14,23 @@ import com.cg.entity.Feedback10;
 import com.cg.entity.Passenger10;
 import com.cg.entity.User10;
 import com.cg.exception.IdNotFoundException;
-import com.cg.exception.InvalidBookingUsernameException;
-import com.cg.exception.InvalidBusRouteNameException;
+import com.cg.exception.InvalidRouteNameException;
+import com.cg.exception.InvalidUsernameException;
 import com.cg.repository.IBookingRepository;
 import com.cg.repository.IFeedBackRepository;
 import com.cg.repository.IPassengerRepository;
 import com.cg.repository.IUserRepository;
 
-/******************************************************************
+/*********************************************************************************************
  * 
  * @author Harshitha V
  * Version: 1.0
  * Description: This is the service implementation class of the function declared in the 
- * 				service interface IBookingService that autowires a bean of IBookingService
- * 				to perform JPA Functions
+ * 				service interface IBookingService that autowires a bean of IBookingRepository,
+ * 				IUserRepository and IFeedBackRepository to perform JPA Functions
  * Created date: 21-04-2021
  * 
- ******************************************************************/
-
+ *********************************************************************************************/
 
 @Service
 public class BookingServiceImpl implements IBookingService
@@ -48,7 +47,7 @@ public class BookingServiceImpl implements IBookingService
 	
 	/***********************************************************************************
 	 * Method: addBooking
-	 * @param Booking
+	 * @param bookingdto
 	 * @return Long
 	 * Description: Adds Booking object passed into the Oracle Database connected to it
 	 * 
@@ -157,7 +156,7 @@ public class BookingServiceImpl implements IBookingService
 		if(userRepository.existsByUsername(username)) {
 			return bookingRepository.findAllByUsername(username);
 		}
-		else throw new InvalidBookingUsernameException();
+		else throw new InvalidUsernameException();
 		
 	}
 	
@@ -177,7 +176,7 @@ public class BookingServiceImpl implements IBookingService
 			return bookingRepository.getFeedBackByBusRoute(routeName);
 		}
 		else {
-			throw new InvalidBusRouteNameException();
+			throw new InvalidRouteNameException();
 		}
 		
 	}

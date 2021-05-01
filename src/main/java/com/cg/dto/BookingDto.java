@@ -6,6 +6,14 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+/*********************************************************************
+ * 
+ * @author Harshitha V 
+ * Version: 1.0 
+ * Date: 20-04-2021 
+ * Description: This is the dto class of the Booking module
+ *
+ *********************************************************************/
 
 public class BookingDto {
 	@NotEmpty(message = "username should not be empty")
@@ -22,7 +30,6 @@ public class BookingDto {
 	public BookingDto() {
 		super();
 	}
-
 	
 
 	public BookingDto(@NotEmpty(message = "username should not be empty") @Length(min = 3, max = 15) String username,

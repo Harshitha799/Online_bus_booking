@@ -8,11 +8,20 @@ import com.cg.dto.FeedbackDto;
 import com.cg.entity.BusOperator10;
 import com.cg.entity.Feedback10;
 
+
+/**************************************************************************
+ * 
+ * @author Prithviraj V
+ * Version: 1.0
+ * Description: This is the service layer's IFeedBackService interface
+ * Created date: 20-04-2021
+ * 
+ ****************************************************************************/
+
 @Service
 public interface IFeedBackService {
 	
 	public Feedback10 addFeedback(FeedbackDto feedback);
-	//public Feedback10 addFeedback(Feedback10 feedback);
 	
 	public List<Feedback10> viewAllFeedBacks(String routeName);
 	

@@ -1,5 +1,14 @@
 package com.cg.dto;
 
+/*********************************************************************
+ * 
+ * @author Prithviraj V 
+ * Version: 1.0 
+ * Date: 20-04-2021 
+ * Description: This is the dto class of the Feedback module
+ *
+ *********************************************************************/
+
 public class FeedbackDto {
 	
 	private int ratings;

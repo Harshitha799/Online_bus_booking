@@ -3,6 +3,15 @@ package com.cg.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/*********************************************************************
+ * 
+ * @author Hima Bindhu
+ * Version: 1.0 
+ * Date: 20-04-2021 
+ * Description: This is the dto class of the Bus module
+ *
+ *********************************************************************/
+
 public class BusDto {
 	
     @NotEmpty(message = "busnumber should not be null")

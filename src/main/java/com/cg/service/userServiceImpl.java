@@ -5,9 +5,20 @@ import org.springframework.stereotype.Service;
 
 import com.cg.dto.UserDto;
 import com.cg.entity.User10;
+import com.cg.exception.InvalidUsernameException;
 import com.cg.exception.UsernameAlreadyExistsException;
-import com.cg.exception.UsernameNotFoundException;
 import com.cg.repository.IUserRepository;
+
+/****************************************************************************************
+ * 
+ * @author Durga Anand
+ * Version: 1.1
+ * Description: This is the service implementation class of the function declared in the 
+ * 				service interface IUsersService that autowires a bean of IUserRepository 
+ * 				to perform JPA Functions
+ * Created date: 20-04-2021
+ * 
+ ***************************************************************************************/
 
 @Service
 public class userServiceImpl implements IUsersService  {
@@ -28,7 +39,6 @@ public class userServiceImpl implements IUsersService  {
 	@Override
 	public void deleteUser(String username)  
 	{
-		// TODO Auto-generated method stub
 		if(userRepository.existsByUsername(username))
 		{
 			User10 user = new User10();
@@ -37,7 +47,7 @@ public class userServiceImpl implements IUsersService  {
 		}
 		else
 		{
-			throw new UsernameNotFoundException();
+			throw new InvalidUsernameException();
 		}
 				
 	}
@@ -54,7 +64,6 @@ public class userServiceImpl implements IUsersService  {
 	@Override
 	public void updatePassword(String username, String newPassword) 
 	{
-		// TODO Auto-generated method stub
 		if(userRepository.existsByUsername(username)) 
 		{
 			User10 user = new User10();
@@ -64,14 +73,12 @@ public class userServiceImpl implements IUsersService  {
 		}
 		else
 		{
-			throw new UsernameNotFoundException();
+			throw new InvalidUsernameException();
 		}
-			
-			
-		
 		
 	}
 
+	
 	/*************
 	 * Method : addUser
 	 * Description: method used for adding a new user
@@ -81,12 +88,9 @@ public class userServiceImpl implements IUsersService  {
 	 * Created date: 20 April 2021
 	 * 
 	 */
-	
-
 	@Override
 	public User10 addUser(UserDto userdto) 
 	{
-		// TODO Auto-generated method stub
 		User10 user=new User10();
 		if(userRepository.existsByUsername(userdto.getUsername())) 
 		{
@@ -100,8 +104,7 @@ public class userServiceImpl implements IUsersService  {
 		user.setPassword(userdto.getPassword());
 		return userRepository.save(user);
 		}
-	
-		
 	}
 
+	
 }
